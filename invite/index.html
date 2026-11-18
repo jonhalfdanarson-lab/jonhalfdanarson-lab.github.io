@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Invitasjon til Minner</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main>
+    <div class="icon" aria-hidden="true">👋</div>
+    <h1>Du er invitert</h1>
+    <p class="lead">Noen vil dele minner med deg i Minner-appen.</p>
+    <div id="code-block" hidden>
+      <p>Invitasjonskoden din:</p>
+      <div class="code" id="code"></div>
+    </div>
+    <p>Har du appen? Trykk på lenken du fikk igjen fra telefonen, så åpnes den i appen.
+      Du kan også skrive inn koden under <strong>Kontakter → Har du fått en kode?</strong></p>
+    <p>Har du ikke appen ennå? Den er ikke i App Store eller Google Play ennå.
+      Spør den som inviterte deg.</p>
+    <p>Invitasjonen gjelder i 7 dager og kan brukes én gang.</p>
+  </main>
+  <script>
+    // Viser koden fra lenken, f.eks. /invite/?code=K7MQ4XZ som K7M-Q4XZ
+    const raw = new URLSearchParams(location.search).get('code') || '';
+    const clean = raw.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (clean.length === 7) {
+      document.getElementById('code').textContent = clean.slice(0, 3) + '-' + clean.slice(3);
+      document.getElementById('code-block').hidden = false;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.memories_app",
+      "sha256_cert_fingerprints": [
+        "58:2D:69:05:AA:79:42:5C:7A:FE:23:66:E5:EB:B2:00:51:9C:06:D4:48:B5:00:D7:D4:5C:CE:62:41:AB:55:51"
+      ]
+    }
+  }
+]
