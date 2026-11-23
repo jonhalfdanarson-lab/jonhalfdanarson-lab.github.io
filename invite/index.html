@@ -23,8 +23,10 @@
     <p>Invitasjonen gjelder i 7 dager og kan brukes én gang.</p>
   </main>
   <script>
-    // Viser koden fra lenken, f.eks. /invite/?code=K7MQ4XZ som K7M-Q4XZ
-    const raw = new URLSearchParams(location.search).get('code') || '';
+    // Viser koden fra lenken, f.eks. /invite/?invite=K7MQ4XZ som K7M-Q4XZ
+    // («code» er det gamle navnet på parameteren)
+    const params = new URLSearchParams(location.search);
+    const raw = params.get('invite') || params.get('code') || '';
     const clean = raw.toUpperCase().replace(/[^A-Z0-9]/g, '');
     if (clean.length === 7) {
       document.getElementById('code').textContent = clean.slice(0, 3) + '-' + clean.slice(3);
